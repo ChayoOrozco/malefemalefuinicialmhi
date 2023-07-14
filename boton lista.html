@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Prenote generator</title>
+  <style>
+    .titulo {
+        text-align: center;
+    }
+    .form-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Choose a doctor and type of note </h1>
+  <style>
+    .menu {
+      display: none;
+    }
+
+    .doctors-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .doctor-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+    }
+
+    .doctor-button {
+      width: 200px;
+      height: 200px;
+      background-color: #f2f2f2;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .doctor-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .sub-options {
+      margin-top: 10px;
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="doctors-container">
+    <div class="doctor-card">
+      <button class="doctor-button" onclick="mostrarSubMenu('subMenu1')">
+        <img src="ruta_de_la_imagen1.jpg" alt="Doctor 1">
+      </button>
+      <div id="subMenu1" class="menu">
+        <div class="sub-options">
+          <button>Nuevo Paciente</button>
+          <button>Paciente en Seguimiento</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <button class="doctor-button" onclick="mostrarSubMenu('subMenu2')">
+        <img src="ruta_de_la_imagen2.jpg" alt="Doctor 2">
+      </button>
+      <div id="subMenu2" class="menu">
+        <div class="sub-options">
+          <button>Nuevo Paciente</button>
+          <button>Paciente en Seguimiento</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <button class="doctor-button" onclick="mostrarSubMenu('subMenu3')">
+        <img src="ruta_de_la_imagen3.jpg" alt="Doctor 3">
+      </button>
+      <div id="subMenu3" class="menu">
+        <div class="sub-options">
+          <button>Nuevo Paciente</button>
+          <button>Paciente en Seguimiento</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSubMenu(menuId) {
+      var menus = document.getElementsByClassName("menu");
+      var subOptions = document.getElementsByClassName("sub-options");
+      for (var i = 0; i < menus.length; i++) {
+        if (menus[i].id === menuId) {
+          menus[i].style.display = "block";
+          subOptions[i].style.display = "block";
+        } else {
+          menus[i].style.display = "none";
+          subOptions[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>

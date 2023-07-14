@@ -1,0 +1,154 @@
+
+<html>
+<head>
+  <title>Menú desplegable vinculado a botones</title>
+  <style>
+    .menu {
+      display: none;
+    }
+
+    .doctors-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .doctor-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+    }
+
+    .doctor-button {
+      width: 200px;
+      height: 200px;
+      background-color: #f2f2f2;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .doctor-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .sub-options {
+      margin-top: 10px;
+      display: none;
+      text-align: center;
+    }
+
+    .form-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="doctors-container">
+    <div class="doctor-card">
+      <button class="doctor-button" onclick="mostrarSubMenu('subMenu1')">
+        <img src="ruta_de_la_imagen1.jpg" alt="Doctor 1">
+      </button>
+      <div id="subMenu1" class="menu">
+        <div class="sub-options">
+          <button onclick="irAFormulario('AWfemaleInicialForm')">Nuevo Paciente</button>
+          <button onclick="irAFormulario('AWfemaleFollowUpForm')">Paciente en Seguimiento</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <button class="doctor-button" onclick="mostrarSubMenu('subMenu2')">
+        <img src="ruta_de_la_imagen2.jpg" alt="Doctor 2">
+      </button>
+      <div id="subMenu2" class="menu">
+        <div class="sub-options">
+          <button onclick="irAFormulario('NPfemaleInicialForm')">Nuevo Paciente</button>
+          <button onclick="irAFormulario('NPfemaleFollowUpForm')">Paciente en Seguimiento</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <button class="doctor-button" onclick="mostrarSubMenu('subMenu3')">
+        <img src="ruta_de_la_imagen3.jpg" alt="Doctor 3">
+      </button>
+      <div id="subMenu3" class="menu">
+        <div class="sub-options">
+          <button onclick="irAFormulario('REmaleInicialForm')">Nuevo Paciente</button>
+          <button onclick="irAFormulario('REmaleFollowUpForm')">Paciente en Seguimiento</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container" id="AWfemaleInicialForm">
+    <h2>Female Inicial</h2>
+    <form id="AWfemaleInicialForm">
+      <!-- Código 1: Female Inicial -->
+      <label for="fechaConsultafi">Consult date(MM/DD/AA):</label><br>
+      <input type="text" id="fechaConsultafi" name="fechaConsultafi"><br><br>
+      <label for="fechaColectafi">BW Date of collection (MM/DD/AA):</label><br>
+      <input type="text" id="fechaColectafi" name="fechaColectafi"><br><br>
+      <label for="agefi">AGE:</label><br>
+      <input type="text" id="agefi" name="agefi"><br><br>
+      <label for="b12fi">B12:</label><br>
+      <input type="text" id="b12fi" name="b12fi"><br><br>
+      <label for="tshfi">TSH:</label><br>
+      <input type="text" id="tshfi" name="tshfi"><br><br>
+      <label for="t3fi">T3:</label><br>
+      <input type="text" id="t3fi" name="t3fi"><br><br>
+      <label for="stressfi">Stress:</label><br>
+      <input type="text" id="stressfi" name="stressfi"><br><br>
+      <label for="dfi">D:</label><br>
+      <input type="text" id="dfi" name="dfi"><br><br>
+      <label for="ldlfi">LDL:</label><br>
+      <input type="text" id="ldlfi" name="ldlfi"><br><br>
+      <label for="cholesterolfi">Cholesterol:</label><br>
+      <input type="text" id="cholesterolfi" name="cholesterolfi"><br><br>
+      <label for="shbgfi">SHBG:</label><br>
+      <input type="text" id="shbgfi" name="shbgfi"><br><br>
+      <label for="altfi">ALT:</label><br>
+      <input type="text" id="altfi" name="altfi"><br><br>
+      <label for="a1cfi">A1C:</label><br>
+      <input type="text" id="a1cfi" name="a1cfi"><br><br>
+      <label for="igffi">IGF:</label><br>
+      <input type="text" id="igffi" name="igffi"><br><br>
+      <button type="submit">Generate</button>
+    </form>
+  </div>
+
+  <!-- Aquí se pueden agregar los demás formularios -->
+
+  <script>
+    function mostrarSubMenu(menuId) {
+      var menus = document.getElementsByClassName("menu");
+      var subOptions = document.getElementsByClassName("sub-options");
+      for (var i = 0; i < menus.length; i++) {
+        if (menus[i].id === menuId) {
+          menus[i].style.display = "block";
+          subOptions[i].style.display = "block";
+        } else {
+          menus[i].style.display = "none";
+          subOptions[i].style.display = "none";
+        }
+      }
+    }
+
+    function irAFormulario(formId) {
+      var formContainer = document.getElementById(formId);
+      var formContainers = document.getElementsByClassName("form-container");
+      for (var i = 0; i < formContainers.length; i++) {
+        if (formContainers[i].id === formId) {
+          formContainers[i].style.display = "block";
+        } else {
+          formContainers[i].style.display = "none";
+        }
+      }
+      formContainer.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
